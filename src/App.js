@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Footer from './components/Footer.js'
+import AddTodo from './containers/AddTodo'
+import VisibleTodoList from './containers/VisibleTodoList'
+import { Card } from 'antd'
+import './css/app.css'
+const App = () => (
+  // <div>
+  //   <AddTodo />
+  //   <VisibleTodoList />
+  //   <Footer />
+  // </div>
+  <div className="todo-list">
+    <Card title="TODO LIST" style={{ width: 500 }}>
+      <AddTodo />
+      <VisibleTodoList />
+      <Footer />
+    </Card>
+  </div>
+)
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+export default App
