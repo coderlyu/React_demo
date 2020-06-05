@@ -13,7 +13,7 @@ class Content_ extends Component {
           minHeight: 280,
         }}
       >
-        {this.props.children || 'Content'}
+        {this.props.children}
       </Content>
     );
   }
