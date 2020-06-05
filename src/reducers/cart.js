@@ -21,6 +21,7 @@ const addedIds = (state = initialState.addedIds, action) => {
   }
 }
 
+// 按Id列出的数量
 const quantityById = (state = initialState.quantityById, action) => {
   switch (action.type) {
     case ADD_TO_CART:
@@ -32,7 +33,7 @@ const quantityById = (state = initialState.quantityById, action) => {
       return state
   }
 }
-
+// 获取数量
 export const getQuantity = (state, productId) =>
   state.quantityById[productId] || 0
 

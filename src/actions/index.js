@@ -1,25 +1,26 @@
 import shop from '../api/shop'
 import * as types from '../constants/ActionTypes'
+const { getProducts, buyProducts } = shop
 
-const receiveProducts = products => ({
-  type: types.RECEIVE_PRODUCTS,
-  products
-})
 
-export const getAllProducts = () => dispatch => {
-  shop.getProducts(products => {
-    dispatch(receiveProducts(products))
-  })
+export const getAllProducts = () => {
+  return (dispatch) => {
+    getProducts(products => {
+      dispatch({
+        type: types.RECEIVE_PRODUCTS,
+        products
+      })
+    })
+  }
 }
 
-const addToCartUnsafe = productId => ({
-  type: types.ADD_TO_CART,
-  productId
-})
 
 export const addToCart = productId => (dispatch, getState) => {
   if (getState().products.byId[productId].inventory > 0) {
-    dispatch(addToCartUnsafe(productId))
+    dispatch({
+      type: types.ADD_TO_CART,
+      productId
+    })
   }
 }
 
@@ -29,7 +30,7 @@ export const checkout = products => (dispatch, getState) => {
   dispatch({
     type: types.CHECKOUT_REQUEST
   })
-  shop.buyProducts(products, () => {
+  buyProducts(products, () => {
     dispatch({
       type: types.CHECKOUT_SUCCESS,
       cart
