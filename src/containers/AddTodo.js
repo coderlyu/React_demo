@@ -4,9 +4,6 @@ import { addTodo } from '../actions'
 import { Form, Input, Button } from 'antd'
 
 class AddTodo extends React.Component {
-  constructor(props) {
-    super()
-  }
   render() {
     const addTodoList = (values) => {
       this.props.onAddTodo(values.todo)

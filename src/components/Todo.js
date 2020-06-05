@@ -4,9 +4,6 @@ import { List } from 'antd'
 import { CheckCircleTwoTone, InfoCircleTwoTone, CloseCircleTwoTone } from '@ant-design/icons'
 
 class Todo extends React.Component {
-  constructor(props) {
-    super()
-  }
   render() {
     return (
       <List.Item

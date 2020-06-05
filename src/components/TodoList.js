@@ -6,9 +6,6 @@ import { Card } from 'antd'
 import { connect } from 'react-redux'
 
 class TodoList extends React.Component {
-  constructor(props) {
-    super()
-  }
   render() {
     let data = this.props.todos
     let title = this.props.title

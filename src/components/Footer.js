@@ -5,9 +5,6 @@ import { connect } from 'react-redux'
 import { clearTodo } from '../actions/index'
 import { DeleteTwoTone } from '@ant-design/icons'
 class Footer extends React.Component {
-  constructor(props) {
-    super()
-  }
   render() {
     return (
       <div className="footer-btns">
