@@ -1,6 +1,6 @@
 import React from 'react'
-import ProductsContainer from './ProductsContainer'
-import CartContainer from './CartContainer'
+import ProductsContainer from '../view/ProductsContainer'
+import CartContainer from '../view/CartContainer'
 
 const App = () => (
   <div>

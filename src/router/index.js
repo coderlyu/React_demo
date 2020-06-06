@@ -1,6 +1,6 @@
 
-// export { default as ProductsContainer } from '../containers/ProductsContainer'
-// export { default as CartContainer } from '../containers/CartContainer'
+// export { default as ProductsContainer } from '../view/ProductsContainer'
+// export { default as CartContainer } from '../view/CartContainer'
 // export { default as Layout } from '../components/Layout/index'
 // export { default as Cart } from '../components/Cart/index'
 // export { default as Home } from '../components/Home/inde'
@@ -13,11 +13,11 @@ import Loadable from 'react-loadable'
 const Loading = () => null;  //加载时不现实loading
 
 const ProductsContainer = Loadable({
-  loader: () => import('../containers/ProductsContainer'), //按需加载 点击时只加载一个页面
+  loader: () => import('../view/ProductsContainer'), //按需加载 点击时只加载一个页面
   loading: Loading,
 });
 const CartContainer = Loadable({
-  loader: () => import('../containers/CartContainer'),
+  loader: () => import('../view/CartContainer'),
   loading: Loading,
 });
 const Layout = Loadable({
