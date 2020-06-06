@@ -1,4 +1,4 @@
-import * as types from '../constants/ActionTypes'
+import * as types from '../types/index'
 const initState = {
   collapsed: false
 }

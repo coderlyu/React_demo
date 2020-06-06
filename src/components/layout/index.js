@@ -5,7 +5,7 @@ import Content from './Content'
 import Header from './Header'
 import Nav from './Nav'
 import PropTypes from 'prop-types'
-import { toggleCollapse } from '../../actions/app'
+import { toggleCollapse } from '../../redux/actions/app.js'
 import {
   Switch,
   Route,

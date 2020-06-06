@@ -1,5 +1,5 @@
-import shop from '../api/shop'
-import * as types from '../constants/ActionTypes'
+import shop from '../../api/shop'
+import * as types from '../types/index'
 const { getProducts, buyProducts } = shop
 
 
