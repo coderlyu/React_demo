@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Table, Input, Button } from 'antd';
+import React, { Component } from 'react'
+import { Table, Input, Button } from 'antd'
 const columns = [
   {
     title: '商品名',
@@ -15,17 +15,13 @@ const columns = [
     title: '单价',
     dataIndex: 'price',
     key: 'price',
-    render: (text) => (
-      <> ￥{text} </>
-    )
+    render: (text) => <> ￥{text} </>
   },
   {
     title: '总价',
     dataIndex: 'total',
     key: 'total',
-    render: (text) => (
-      <> ￥{text} </>
-    )
+    render: (text) => <> ￥{text} </>
   },
   {
     title: '操作',
@@ -37,9 +33,9 @@ const columns = [
         <Input value={record.number} />
         <Button onClick={() => this.increase(index)}>+</Button>
       </div>
-    ),
-  },
-];
+    )
+  }
+]
 
 const data = [
   {
@@ -47,10 +43,9 @@ const data = [
     name: '芒果',
     number: 10,
     price: 120,
-    total: 1200,
-  },
-
-];
+    total: 1200
+  }
+]
 class Cart extends Component {
   decrease = (index) => {
     console.log('减少：' + index)
@@ -59,10 +54,8 @@ class Cart extends Component {
     console.log('增加：' + index)
   }
   render() {
-    return (
-      <Table columns={columns} dataSource={data} />
-    );
+    return <Table columns={columns} dataSource={data} />
   }
 }
 
-export default Cart;
+export default Cart

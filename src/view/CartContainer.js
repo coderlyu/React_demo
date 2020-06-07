@@ -9,16 +9,19 @@ const CartContainer = ({ products, total, checkout }) => (
   <Cart
     products={products}
     total={total}
-    onCheckoutClicked={() => checkout(products)} />
+    onCheckoutClicked={() => checkout(products)}
+  />
 )
 
 CartContainer.propTypes = {
-  products: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    quantity: PropTypes.number.isRequired
-  })).isRequired,
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+      quantity: PropTypes.number.isRequired
+    })
+  ).isRequired,
   total: PropTypes.string,
   checkout: PropTypes.func.isRequired
 }
@@ -28,7 +31,4 @@ const mapStateToProps = (state) => ({
   total: getTotal(state)
 })
 
-export default connect(
-  mapStateToProps,
-  { checkout }
-)(CartContainer)
+export default connect(mapStateToProps, { checkout })(CartContainer)

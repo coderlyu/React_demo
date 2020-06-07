@@ -2,10 +2,9 @@ import shop from '../../api/shop'
 import * as types from '../types/index'
 const { getProducts, buyProducts } = shop
 
-
 export const getAllProducts = () => {
   return (dispatch) => {
-    getProducts(products => {
+    getProducts((products) => {
       dispatch({
         type: types.RECEIVE_PRODUCTS,
         products
@@ -14,8 +13,7 @@ export const getAllProducts = () => {
   }
 }
 
-
-export const addToCart = productId => (dispatch, getState) => {
+export const addToCart = (productId) => (dispatch, getState) => {
   if (getState().products.byId[productId].inventory > 0) {
     dispatch({
       type: types.ADD_TO_CART,
@@ -24,7 +22,7 @@ export const addToCart = productId => (dispatch, getState) => {
   }
 }
 
-export const checkout = products => (dispatch, getState) => {
+export const checkout = (products) => (dispatch, getState) => {
   const { cart } = getState()
 
   dispatch({

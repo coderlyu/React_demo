@@ -1,4 +1,4 @@
-import { Layout } from 'antd';
+import { Layout } from 'antd'
 import React from 'react'
 import { connect } from 'react-redux'
 import Content from './Content'
@@ -6,11 +6,7 @@ import Header from './Header'
 import Nav from './Nav'
 import PropTypes from 'prop-types'
 import { toggleCollapse } from '../../redux/actions/app.js'
-import {
-  Switch,
-  Route,
-  Redirect
-} from "react-router-dom";
+import { Switch, Route, Redirect } from 'react-router-dom'
 import { Home, Cart, Product, TodoList } from '../../router/index'
 class Layout_ extends React.Component {
   static propTypes = {
@@ -22,7 +18,7 @@ class Layout_ extends React.Component {
   }
   render() {
     return (
-      <Layout style={{ height: '100%' }} >
+      <Layout style={{ height: '100%' }}>
         <Nav collapsed={this.props.collapsed} />
         <Layout className="site-layout">
           <Header collapsed={this.props.collapsed} onToggle={this.toggle} />

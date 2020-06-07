@@ -1,15 +1,14 @@
 import React from 'react'
-import { Layout, Menu } from 'antd';
+import { Layout, Menu } from 'antd'
 import {
   UserOutlined,
   VideoCameraOutlined,
-  UploadOutlined,
-} from '@ant-design/icons';
+  UploadOutlined
+} from '@ant-design/icons'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-const { Sider } = Layout;
-
+const { Sider } = Layout
 
 export default class Nav extends React.Component {
   static propTypes = {
@@ -20,9 +19,14 @@ export default class Nav extends React.Component {
   }
   render() {
     return (
-      <Sider trigger={null} collapsible collapsed={this.props.collapsed} >
+      <Sider trigger={null} collapsible collapsed={this.props.collapsed}>
         <div className="logo" />
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['/home']} onClick={this.menuClick}>
+        <Menu
+          theme="dark"
+          mode="inline"
+          defaultSelectedKeys={['/home']}
+          onClick={this.menuClick}
+        >
           <Menu.Item key="/home" icon={<UserOutlined />}>
             <Link to="/home">首页</Link>
           </Menu.Item>

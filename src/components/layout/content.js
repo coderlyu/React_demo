@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { Layout } from 'antd';
+import React, { Component } from 'react'
+import { Layout } from 'antd'
 
-const { Content } = Layout;
+const { Content } = Layout
 class Content_ extends Component {
   render() {
     return (
@@ -10,13 +10,13 @@ class Content_ extends Component {
         style={{
           margin: '24px 16px',
           padding: 24,
-          minHeight: 280,
+          minHeight: 280
         }}
       >
         {this.props.children}
       </Content>
-    );
+    )
   }
 }
 
-export default Content_;
+export default Content_
