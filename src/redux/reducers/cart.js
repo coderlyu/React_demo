@@ -1,49 +1,72 @@
-import { ADD_TO_CART, CHECKOUT_REQUEST, CHECKOUT_FAILURE } from '../types/index'
+import {
+  ADD_TO_CART,
+  GET_ALL_CART,
+  DECREASE_PRODUCT,
+  INCREASE_PRODUCT
+} from '../types/index'
 
-const initialState = {
-  addedIds: [],
-  quantityById: {}
-}
-
-const addedIds = (state = initialState.addedIds, action) => {
+const initState = []
+const cart = (state = initState, action) => {
   switch (action.type) {
     case ADD_TO_CART:
-      if (state.indexOf(action.productId) !== -1) {
-        return state
+      // 添加购物车
+      let { product } = action
+      let isFirst = state.some((item) => {
+        return item.id === product.id
+      })
+      let tmp = state
+      if (!isFirst) {
+        tmp.push(product)
+      } else {
+        tmp.map((item) => {
+          if (item.id === product.id) {
+            return (item.number = item.number + product.number)
+          }
+          return item
+        })
       }
-      return [...state, action.productId]
+      return tmp
+    case GET_ALL_CART:
+      // 获取所有购物车里的东西
+      return state
+    case INCREASE_PRODUCT:
+      // 增加购物车里的某个商品
+      let id = action.id
+      let tmps = state
+      let isExist = tmps.some((item) => {
+        return item.id === id
+      })
+      if (isExist) {
+        return tmps.map((item) => {
+          if (id === item.id) {
+            item.number = item.number + 1
+            return item
+          }
+          return item
+        })
+      }
+      return tmps
+
+    case DECREASE_PRODUCT:
+      let id2 = action.id
+      let tmps2 = state
+      let isExist2 = tmps2.some((item) => {
+        return item.id === id2
+      })
+      if (isExist2) {
+        return tmps2.map((item) => {
+          if (id2 === item.id) {
+            item.number = item.number - 1
+            return item
+          }
+          return item
+        })
+      }
+      // 减少购物车里的某个商品
+      return tmps2
+
     default:
       return state
-  }
-}
-
-// 按Id列出的数量
-const quantityById = (state = initialState.quantityById, action) => {
-  switch (action.type) {
-    case ADD_TO_CART:
-      const { productId } = action
-      return { ...state, [productId]: (state[productId] || 0) + 1 }
-    default:
-      return state
-  }
-}
-// 获取数量
-export const getQuantity = (state, productId) =>
-  state.quantityById[productId] || 0
-
-export const getAddedIds = (state) => state.addedIds
-
-const cart = (state = initialState, action) => {
-  switch (action.type) {
-    case CHECKOUT_REQUEST:
-      return initialState
-    case CHECKOUT_FAILURE:
-      return action.cart
-    default:
-      return {
-        addedIds: addedIds(state.addedIds, action),
-        quantityById: quantityById(state.quantityById, action)
-      }
   }
 }
 

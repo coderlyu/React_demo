@@ -1,4 +1,4 @@
-@import "~antd/dist/antd.css";
+@import '~antd/dist/antd.css';
 * {
   margin: 0;
   padding: 0;
@@ -26,13 +26,57 @@ body {
 
 .logo {
   height: 32px;
-  background: rgba(255, 255, 255, 0.2);
   margin: 16px;
+  line-height: 32px;
+  text-align: center;
+  font-size: 25px;
+  letter-spacing: 5px;
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 2px 2px #1890FF, 3px 3px #000;
+}
+.logo-img {
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #fff;
+  margin-left: 25px;
+}
+.hidden{
+  display: none;
 }
 
 .site-layout .site-layout-background {
   background: #fff;
 }
-/* .ant-menu-item-active a {
-  color: ;
-} */
+/* 商品列表 */
+.price {
+  font-weight: 700;
+  color: red;
+}
+.product-item {
+  color: #999;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.card-product {
+  position: relative;
+  overflow: hidden;
+}
+.product-hot {
+  position: absolute;
+  display: inline-block;
+  width: 200px;
+  background: rgb(170, 0, 0);
+  z-index: 10;
+  right: -55px;
+  top: 30px;
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 5px;
+  text-align: center;
+  transform: rotate(45deg);
+  border: 2px solid white;
+  box-shadow: 0 0 0 3px rgb(170, 0, 0);
+}

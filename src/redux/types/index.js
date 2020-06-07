@@ -4,3 +4,6 @@ export const CHECKOUT_SUCCESS = 'CHECKOUT_SUCCESS' // 请求成功
 export const CHECKOUT_FAILURE = 'CHECKOUT_FAILURE' // 请求失败
 export const RECEIVE_PRODUCTS = 'RECEIVE_PRODUCTS' // 接受产品
 export const TOGGLE_COLLAPSE = 'TOGGLE_COLLAPSE' // 左侧导航栏是否展开状态
+export const GET_ALL_CART = 'GET_ALL_CART' // 获取购物车全部商品
+export const DECREASE_PRODUCT = 'DECREASE_PRODUCT' // 减少购物车里的商品
+export const INCREASE_PRODUCT = 'INCREASE_PRODUCT' // 增加购物车里的商品
