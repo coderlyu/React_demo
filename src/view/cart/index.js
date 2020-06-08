@@ -11,7 +11,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     decrease: (id) => {
       // 减少购物车某个商品
-      console.log('id', id)
       dispatch(decreaseProduct(id))
     },
     increase: (id) => {

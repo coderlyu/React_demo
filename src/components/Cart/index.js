@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Table, Button, Space, Pagination } from 'antd'
+import { Table, Button, Space } from 'antd'
 import PropTypes from 'prop-types'
 const { Column } = Table
 
@@ -22,7 +22,11 @@ class Cart extends Component {
       <>
         <Table
           dataSource={this.props.data}
-          pagination={false}
+          pagination={{
+            defaultCurrent: this.props.page,
+            total: this.props.total,
+            defaultPageSize: this.props.number
+          }}
           rowKey={(record, index) => index}
         >
           <Column title="商品名" dataIndex="name" key="name" />
@@ -32,7 +36,7 @@ class Cart extends Component {
             dataIndex="price"
             key="price"
             render={(text) => {
-              return <>￥ {text}</>
+              return <>￥ {text.toFixed(2)}</>
             }}
           />
           <Column
@@ -40,7 +44,7 @@ class Cart extends Component {
             dataIndex="total"
             key="total"
             render={(text, record) => {
-              return <>￥ {record.number * record.price}</>
+              return <>￥ {(record.number * record.price).toFixed(2)}</>
             }}
           />
           <Column
@@ -62,11 +66,6 @@ class Cart extends Component {
             )}
           />
         </Table>
-        <Pagination
-          defaultCurrent={this.props.page}
-          total={this.props.total}
-          defaultPageSize={this.props.number}
-        />
       </>
     )
   }

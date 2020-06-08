@@ -6,6 +6,14 @@ import Header from './Header'
 import Nav from './Nav'
 import PropTypes from 'prop-types'
 import { toggleCollapse } from '../../redux/actions/app.js'
+import { Redirect, Route } from 'react-router-dom'
+import {
+  Home,
+  Cart,
+  Product,
+  TodoList,
+  ProductDetail
+} from '../../router/index'
 // import GenerateRoutes from '../../utils/generate_routes'
 class Layout_ extends React.Component {
   constructor(props) {
@@ -20,12 +28,34 @@ class Layout_ extends React.Component {
     this.props.toggleCollapsed()
   }
   render() {
+    const { match } = this.props
+    console.log('match', match)
     return (
       <Layout style={{ height: '100%' }}>
         <Nav collapsed={this.props.collapsed} />
         <Layout className="site-layout">
           <Header collapsed={this.props.collapsed} onToggle={this.toggle} />
-          <Content>{this.props.children}</Content>
+          <Content>
+            {/* {this.props.children} */}
+            <Redirect exact from={match.url} to={`${match.url}home`} />
+            <Route exact path={`${match.url}home`} component={Home}></Route>
+            <Route exact path={`${match.url}cart`} component={Cart}></Route>
+            <Route
+              exact
+              path={`${match.url}product`}
+              component={Product}
+            ></Route>
+            <Route
+              exact
+              path={`${match.url}product/detail/:id`}
+              component={ProductDetail}
+            ></Route>
+            <Route
+              exact
+              path={`${match.url}todolist`}
+              component={TodoList}
+            ></Route>
+          </Content>
         </Layout>
       </Layout>
     )
