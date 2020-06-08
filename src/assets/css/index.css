@@ -101,3 +101,14 @@ body {
   font-weight: 700;
   margin: 10px 0 25px 0;
 }
+
+/* 左边导航栏 */
+.ant-layout-sider {
+  background: linear-gradient(#e66465, #9198e5);
+}
+.ant-menu.ant-menu-dark, .ant-menu-dark .ant-menu-sub{
+  background: linear-gradient(#E2676C, #CF7288);
+}
+.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected{
+  background: linear-gradient(#7d7d7d, #9198e5);
+}
