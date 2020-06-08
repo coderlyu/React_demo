@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Input, Button, Space, Card, Col, Spin } from 'antd'
+import { withRouter } from 'react-router-dom'
 const { Meta } = Card
 class ProductItem extends Component {
   constructor(props) {
@@ -43,6 +44,11 @@ class ProductItem extends Component {
       loading: false
     })
   }
+  handleDetail = () => {
+    this.props.history.push(
+      `${this.props.match.url}/detail/${this.props.product.id}`
+    )
+  }
   render() {
     const { product } = this.props
     return (
@@ -52,7 +58,7 @@ class ProductItem extends Component {
         md={12}
         lg={12}
         xl={6}
-        style={{ display: 'flex', justifyContent: "center" }}
+        style={{ display: 'flex', justifyContent: 'center' }}
       >
         <Spin spinning={this.state.loading}>
           <Card
@@ -66,11 +72,16 @@ class ProductItem extends Component {
                 src={product.img}
                 onLoad={this.handleImageLoaded}
                 onError={this.handleImageLoaded}
+                onClick={this.handleDetail}
               />
             }
           >
             <span className="product-hot">本周热销</span>
-            <Meta className="ellipsis" title={product.name} description={product.intro} />
+            <Meta
+              className="ellipsis"
+              title={product.name}
+              description={product.intro}
+            />
             <div className="product-item">
               <span>
                 <i className="price">￥{product.price}</i>
@@ -108,4 +119,4 @@ class ProductItem extends Component {
   }
 }
 
-export default ProductItem
+export default withRouter(ProductItem)

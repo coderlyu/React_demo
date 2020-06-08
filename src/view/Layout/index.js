@@ -38,22 +38,35 @@ class Layout_ extends React.Component {
           <Content>
             {/* {this.props.children} */}
             <Redirect exact from={match.url} to={`${match.url}home`} />
-            <Route exact path={`${match.url}home`} component={Home}></Route>
-            <Route exact path={`${match.url}cart`} component={Cart}></Route>
+            <Route
+              exact
+              path={`${match.url}home`}
+              component={Home}
+              title="主页"
+            ></Route>
+            <Route
+              exact
+              path={`${match.url}cart`}
+              component={Cart}
+              title="购物车"
+            ></Route>
             <Route
               exact
               path={`${match.url}product`}
               component={Product}
+              title="商品列表"
             ></Route>
             <Route
               exact
               path={`${match.url}product/detail/:id`}
               component={ProductDetail}
+              title="商品详情"
             ></Route>
             <Route
               exact
               path={`${match.url}todolist`}
               component={TodoList}
+              title="todolist"
             ></Route>
           </Content>
         </Layout>

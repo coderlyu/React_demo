@@ -18,11 +18,23 @@ class App extends React.Component {
       path404: '/404'
     }
   }
+  componentWillUpdate(nextState) {
+    // console.log('nextState', nextState)
+    // console.log(
+    //   '---',
+    //   this.props.history.listen((route) => {
+    //     console.log(route)
+    //   })
+    // )
+  }
+  updateTitle = (props) => {
+    // this
+  }
   render() {
     return (
       <Switch>
-        <Route exact path="/404" component={NotFound} />
-        <Route exact path="/login" component={Login} />
+        <Route exact path="/404" title="页面失联了" component={NotFound} />
+        <Route exact path="/login" state="登录界面" component={Login} />
         <Route path="/" component={Layout}></Route>
         <Redirect to="/404"></Redirect>
       </Switch>
