@@ -70,7 +70,7 @@ class ProductItem extends Component {
             }
           >
             <span className="product-hot">本周热销</span>
-            <Meta title={product.name} description={product.intro} />
+            <Meta className="ellipsis" title={product.name} description={product.intro} />
             <div className="product-item">
               <span>
                 <i className="price">￥{product.price}</i>

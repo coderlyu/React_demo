@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
-import { Row, message } from 'antd'
+import { Row, message, Spin } from 'antd'
 import productList from '../../api/products.json'
 import ProductItem from './ProductItem'
 class Product extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      products: []
+      products: [],
+      timer: null
     }
   }
   addCart = (product) => {
@@ -35,26 +36,40 @@ class Product extends Component {
     message.info('添加购物车成功!')
     this.props.addToCart(it)
   }
-  async componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        products: productList
-      })
-    }, 1000)
+  mounted = false
+  componentDidMount() {
+    this.mounted = true
+    let timer = setTimeout(() => {
+      if (this.mounted) {
+        this.mounted = false
+        this.setState({
+          products: productList
+        })
+      }
+    }, 500)
+    this.setState({
+      timer: timer
+    })
+  }
+  componentWillUnmount() {
+    clearTimeout(this.state.timer)
+    this.mounted && (this.mounted = false)
   }
   render() {
     return (
-      <Row gutter={16}>
-        {this.state.products.map((product) => {
-          return (
-            <ProductItem
-              product={product}
-              addCart={this.addCart}
-              key={product.id}
-            />
-          )
-        })}
-      </Row>
+      <Spin spinning={this.mounted}>
+        <Row gutter={16}>
+          {this.state.products.map((product) => {
+            return (
+              <ProductItem
+                product={product}
+                addCart={this.addCart}
+                key={product.id}
+              />
+            )
+          })}
+        </Row>
+      </Spin>
     )
   }
 }

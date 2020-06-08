@@ -33,14 +33,14 @@ body {
   letter-spacing: 5px;
   color: #fff;
   font-weight: 700;
-  text-shadow: 2px 2px #1890FF, 3px 3px #000;
+  text-shadow: 2px 2px #1890ff, 3px 3px #000;
 }
 .logo-img {
   border-radius: 50%;
   box-shadow: 0 0 0 2px #fff;
   margin-left: 25px;
 }
-.hidden{
+.hidden {
   display: none;
 }
 
@@ -79,4 +79,10 @@ body {
   transform: rotate(45deg);
   border: 2px solid white;
   box-shadow: 0 0 0 3px rgb(170, 0, 0);
+}
+.ellipsis {
+  /* 单行省略号*/
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

@@ -3,23 +3,6 @@ import { Table, Button, Space, Pagination } from 'antd'
 import PropTypes from 'prop-types'
 const { Column } = Table
 
-// const data = [
-//   {
-//     key: '1',
-//     name: '芒果',
-//     number: 10,
-//     price: 120,
-//     total: 1200
-//   },
-//   {
-//     key: '2',
-//     name: '荔枝',
-//     number: 4,
-//     price: 16,
-//     total: 64
-//   }
-// ]
-
 class Cart extends Component {
   static propType = {
     data: PropTypes.array,
@@ -61,7 +44,7 @@ class Cart extends Component {
             }}
           />
           <Column
-            title="Action"
+            title="操作"
             key="action"
             width="200px"
             render={(text, record, index) => (
@@ -73,11 +56,7 @@ class Cart extends Component {
                   >
                     -
                   </Button>
-                  <Button
-                    onClick={() => increase(record.id)}
-                  >
-                    +
-                  </Button>
+                  <Button onClick={() => increase(record.id)}>+</Button>
                 </Space>
               </div>
             )}

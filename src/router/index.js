@@ -100,4 +100,8 @@ const ProductDetail = Loadable({
   loader: () => import('../components/Product/detail'),
   loading: Loading
 })
-export { Cart, Home, Product, TodoList, ProductDetail } //将页面导出
+const NotFound = Loadable({
+  loader: () => import('../view/404/index'),
+  loading: Loading
+})
+export { Cart, Home, Product, TodoList, ProductDetail, NotFound } //将页面导出

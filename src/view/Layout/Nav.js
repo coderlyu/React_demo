@@ -17,7 +17,12 @@ class Nav extends React.Component {
     history: PropTypes.object.isRequired
   }
   render() {
+    console.log('nav', this.props)
     const { location, collapsed } = this.props
+    let defaultKey =
+      location.pathname === '/' || location.pathname === '/home'
+        ? '/home'
+        : location.pathname
     return (
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className={collapsed ? 'hidden' : 'logo'}>CODERLY</div>
@@ -26,11 +31,7 @@ class Nav extends React.Component {
           src="/images/avatar.jpg"
           alt="头像"
         />
-        <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={location.pathname}
-        >
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={defaultKey}>
           <Menu.Item key="/home" icon={<UserOutlined />}>
             <Link to="/home">首页</Link>
           </Menu.Item>
