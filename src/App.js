@@ -3,7 +3,8 @@ import Layout from './view/Layout'
 // import { BrowserRouter as Router } from 'react-router-dom' // 引入路由
 import { Switch, Redirect, Route, withRouter } from 'react-router-dom'
 import {
-  NotFound
+  NotFound,
+  Login
   // Home,
   // Cart,
   // Product,
@@ -21,20 +22,9 @@ class App extends React.Component {
     return (
       <Switch>
         <Route exact path="/404" component={NotFound} />
+        <Route exact path="/login" component={Login} />
         <Route path="/" component={Layout}></Route>
         <Redirect to="/404"></Redirect>
-        {/* <Route exact path="/404" component={NotFound}></Route>) : (
-        <Redirect exact from="/" to="/home" />
-        <Route exact path="/home" component={Home}></Route>
-        <Route exact path="/cart" component={Cart}></Route>
-        <Route exact path="/product" component={Product}></Route>
-        <Route
-          exact
-          path="/product/detail/:id"
-          component={ProductDetail}
-        ></Route>
-        <Route exact path="/todolist" component={TodoList}></Route>
-        <Route path="/404" /> */}
       </Switch>
       // <Switch>
       //   {this.props.match.path === this.state.path404} ? (
