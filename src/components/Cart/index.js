@@ -15,11 +15,71 @@ class Cart extends Component {
     total: 100,
     number: 10
   }
+  state = {
+    selectedRowKeys: [], // Check here to configure the default column
+    loading: false,
+    delLoading: false
+  }
+  toBuy = () => {
+    this.setState({ loading: true })
+    // ajax request after empty completing
+    setTimeout(() => {
+      this.props.delByIds(this.state.selectedRowKeys)
+      this.setState({
+        selectedRowKeys: [],
+        loading: false
+      })
+    }, 1000)
+  }
+  batchDel = () => {
+    this.setState({ delLoading: true })
+    setTimeout(() => {
+      this.props.delByIds(this.state.selectedRowKeys)
+      this.setState({
+        selectedRowKeys: [],
+        delLoading: false
+      })
+    }, 1000)
+  }
+  onSelectChange = (selectedRowKeys) => {
+    console.log('selectedRowKeys changed: ', selectedRowKeys)
+    this.setState({ selectedRowKeys })
+  }
   render() {
-    console.log(this.props)
     const { decrease, increase } = this.props
+    const { loading, selectedRowKeys, delLoading } = this.state
+    const rowSelection = {
+      selectedRowKeys,
+      onChange: this.onSelectChange
+    }
+    const hasSelected = selectedRowKeys.length > 0
     return (
       <>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <div style={{ marginBottom: 16 }}>
+            <Button
+              type="danger"
+              onClick={this.batchDel}
+              disabled={!hasSelected || loading}
+              loading={delLoading}
+            >
+              批量删除
+            </Button>
+          </div>
+          <div style={{ marginRight: 16 }}>
+            <span style={{ marginRight: 8 }}>
+              {hasSelected ? `选中 ${selectedRowKeys.length} 项` : ''}
+            </span>
+            <Button
+              type="primary"
+              onClick={this.toBuy}
+              disabled={!hasSelected || delLoading}
+              loading={loading}
+            >
+              确认购买
+            </Button>
+          </div>
+        </div>
         <Table
           dataSource={this.props.data}
           pagination={{
@@ -27,7 +87,8 @@ class Cart extends Component {
             total: this.props.total,
             defaultPageSize: this.props.number
           }}
-          rowKey={(record, index) => index}
+          rowSelection={rowSelection}
+          rowKey={(record, index) => record.id}
         >
           <Column title="商品名" dataIndex="name" key="name" />
           <Column title="数量" dataIndex="number" key="number" />
@@ -55,7 +116,7 @@ class Cart extends Component {
               <div style={{ display: 'flex' }}>
                 <Space>
                   <Button
-                    disabled={record.number <= 0}
+                    disabled={record.number <= 1}
                     onClick={() => decrease(record.id)}
                   >
                     -

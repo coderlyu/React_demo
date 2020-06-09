@@ -30,7 +30,7 @@ export const getAllCart = () => {
     })
   }
 }
-export const decreaseProduct = (id)=> {
+export const decreaseProduct = (id) => {
   return (dispatch) => {
     dispatch({
       type: types.DECREASE_PRODUCT,
@@ -43,6 +43,14 @@ export const increaseProduct = (id) => {
     dispatch({
       type: types.INCREASE_PRODUCT,
       id
+    })
+  }
+}
+export const delByIds = (ids) => {
+  return (dispatch) => {
+    dispatch({
+      type: types.DEL_BY_IDS,
+      ids
     })
   }
 }

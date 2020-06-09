@@ -2,10 +2,11 @@ import {
   ADD_TO_CART,
   GET_ALL_CART,
   DECREASE_PRODUCT,
-  INCREASE_PRODUCT
+  INCREASE_PRODUCT,
+  DEL_BY_IDS
 } from '../types/index'
-
-const initState = []
+import { getCart, setCart } from '../../utils/_ls'
+const initState = getCart() || []
 const cart = (state = initState, action) => {
   switch (action.type) {
     case ADD_TO_CART:
@@ -25,6 +26,7 @@ const cart = (state = initState, action) => {
           return item
         })
       }
+      setCart(tmp)
       return tmp
     case GET_ALL_CART:
       // 获取所有购物车里的东西
@@ -37,7 +39,7 @@ const cart = (state = initState, action) => {
         return item.id === id
       })
       if (isExist) {
-        return tmps.map((item) => {
+        tmps = tmps.map((item) => {
           if (id === item.id) {
             item.number = item.number + 1
             return item
@@ -45,6 +47,7 @@ const cart = (state = initState, action) => {
           return item
         })
       }
+      setCart(tmps)
       return tmps
 
     case DECREASE_PRODUCT:
@@ -54,7 +57,7 @@ const cart = (state = initState, action) => {
         return item.id === id2
       })
       if (isExist2) {
-        return tmps2.map((item) => {
+        tmps2 = tmps2.map((item) => {
           if (id2 === item.id) {
             item.number = item.number - 1
             return item
@@ -63,8 +66,16 @@ const cart = (state = initState, action) => {
         })
       }
       // 减少购物车里的某个商品
+      setCart(tmps2)
       return tmps2
-
+    case DEL_BY_IDS:
+      let { ids } = action
+      let delData = state
+      delData = delData.filter((item) => {
+        return !ids.some((e) => e === item.id)
+      })
+      setCart(delData)
+      return delData
     default:
       return state
   }

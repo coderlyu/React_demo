@@ -19,13 +19,13 @@ class App extends React.Component {
     }
   }
   componentWillUpdate(nextState) {
-    // console.log('nextState', nextState)
-    // console.log(
-    //   '---',
-    //   this.props.history.listen((route) => {
-    //     console.log(route)
-    //   })
-    // )
+    console.log('nextState', nextState)
+    console.log(
+      '---',
+      this.props.history.listen((route) => {
+        console.log(route)
+      })
+    )
   }
   updateTitle = (props) => {
     // this
@@ -33,8 +33,8 @@ class App extends React.Component {
   render() {
     return (
       <Switch>
-        <Route exact path="/404" title="页面失联了" component={NotFound} />
-        <Route exact path="/login" state="登录界面" component={Login} />
+        <Route exact path="/404" state={{ title:"页面失联了"}} component={NotFound} />
+        <Route exact path="/login" state={{ title:"登录界面"}} component={Login} />
         <Route path="/" component={Layout}></Route>
         <Redirect to="/404"></Redirect>
       </Switch>
