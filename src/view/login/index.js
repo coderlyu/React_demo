@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { Form, Input, Button, Checkbox, Card, message } from 'antd'
+import { Login } from '../../redux/actions/user'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 const layout = {
   labelCol: { span: 4 },
   wrapperCol: { span: 20 }
@@ -9,12 +12,17 @@ const tailLayout = {
 }
 
 class Index extends Component {
-  onFinish = (values) => {
-    message.success('登录成功')
+  state = {
+    token: this.props.token
   }
-
-  onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo)
+  onFinish = async (values) => {
+    this.props.login({ username: values.username })
+  }
+  componentWillReceiveProps(nextProps) {
+    if (this.state.token !== nextProps.token) {
+      this.props.history.push('/home')
+      message.success('登录成功')
+    }
   }
   render() {
     return (
@@ -27,7 +35,6 @@ class Index extends Component {
             name="loginForm"
             initialValues={{ remember: true }}
             onFinish={this.onFinish}
-            onFinishFailed={this.onFinishFailed}
             autoComplete="off"
           >
             <Form.Item
@@ -76,5 +83,17 @@ class Index extends Component {
     )
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    token: state.user.token
+  }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    login: (user) => {
+      dispatch(Login(user))
+    }
+  }
+}
 
-export default Index
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Index))

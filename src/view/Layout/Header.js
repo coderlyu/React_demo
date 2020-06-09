@@ -18,7 +18,7 @@ const menu = (
       <Link to="/cart">购物车</Link>
     </Menu.Item>
     <Menu.Item>
-      <Link to="/404">404</Link>
+      <Link to="/logout">登出</Link>
     </Menu.Item>
   </Menu>
 )

@@ -10,40 +10,44 @@
   align-items: center;
 }
 
-h1 {
+.err_h1 {
   font-size: 200px;
   font-weight: 700;
   display: inline-block;
   letter-spacing: 20px;
   position: relative;
-  color: skyblue;
   line-height: 100%;
+  /* color: skyblue; */
+  color: #e66465;
 }
-h1::after {
+.err_h1::after {
   position: absolute;
   left: 0px;
   top: 0px;
-  color: yellowgreen;
+  color: #9198e5;
   -webkit-mask-image: linear-gradient(to bottom, transparent, red);
   mask-image: linear-gradient(to bottom, transparent, red);
+  /* color: yellowgreen;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, red);
+  mask-image: linear-gradient(to bottom, transparent, red); */
   content: attr(data-content);
 }
-p {
+.err_p {
   font-size: 20px;
   color: #999;
 }
-button{
+.err_button {
   border: none;
   outline: none;
   padding: 4px 7px;
   cursor: pointer;
   color: #fff;
-  background: rgba(154, 205, 50, 1);
-  transition: all .25s;
+  background: rgba(178, 131, 179, 1);
+  transition: all 0.25s;
   border-radius: 5px;
 }
-button:hover{
+.err_button:hover {
   /* color: rgba(194, 0, 0, .6); */
-  color: rgba(154, 205, 50, 1);
-  background: rgba(154, 205, 50, .3);
+  color: rgb(175, 97, 177);
+  background: rgba(178, 131, 179, 0.3);
 }

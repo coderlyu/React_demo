@@ -11,10 +11,14 @@ class NotFound extends Component {
     return (
       <div className={'error'}>
         <article>
-          <h1 data-content="404">404</h1>
+          <h1 className="err_h1" data-content="404">
+            404
+          </h1>
           <section>
-            <p>你访问的页面失联了，请联系管理员</p>
-            <button onClick={this.handleLink}>返回主页</button>
+            <p className="err_p">你访问的页面失联了，请联系管理员</p>
+            <button className="err_button" onClick={this.handleLink}>
+              返回主页
+            </button>
           </section>
         </article>
       </div>

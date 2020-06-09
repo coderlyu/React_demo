@@ -4,38 +4,55 @@ import Layout from './view/Layout'
 import { Switch, Redirect, Route, withRouter } from 'react-router-dom'
 import {
   NotFound,
-  Login
+  Login,
+  Logout
   // Home,
   // Cart,
   // Product,
   // TodoList,
   // ProductDetail
 } from './router/index'
+import { connect } from 'react-redux'
 class App extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      path404: '/404'
-    }
-  }
   componentWillUpdate(nextState) {
-    console.log('nextState', nextState)
-    console.log(
-      '---',
-      this.props.history.listen((route) => {
-        console.log(route)
-      })
-    )
+    // console.log('nextState', nextState)
+    // console.log(
+    //   '---',
+    //   this.props.history.listen((route) => {
+    //     console.log(route)
+    //   })
+    // )
   }
   updateTitle = (props) => {
     // this
   }
   render() {
+    const { token } = this.props
     return (
       <Switch>
-        <Route exact path="/404" state={{ title:"页面失联了"}} component={NotFound} />
-        <Route exact path="/login" state={{ title:"登录界面"}} component={Login} />
-        <Route path="/" component={Layout}></Route>
+        <Route
+          exact
+          path="/404"
+          state={{ title: '页面失联了' }}
+          component={NotFound}
+        />
+        <Route
+          exact
+          path="/login"
+          state={{ title: '登录界面' }}
+          component={Login}
+        />
+        <Route
+          exact
+          path="/logout"
+          state={{ title: '登出界面' }}
+          component={Logout}
+        />
+        {!!token ? (
+          <Route path="/" component={Layout}></Route>
+        ) : (
+          <Redirect to="/login"></Redirect>
+        )}
         <Redirect to="/404"></Redirect>
       </Switch>
       // <Switch>
@@ -59,4 +76,9 @@ class App extends React.Component {
     )
   }
 }
-export default withRouter(App)
+const mapStateToProps = (state) => {
+  return {
+    token: state.user.token
+  }
+}
+export default connect(mapStateToProps)(withRouter(App))

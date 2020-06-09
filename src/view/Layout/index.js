@@ -76,7 +76,8 @@ class Layout_ extends React.Component {
 }
 const mapStateToProps = (state) => {
   return {
-    collapsed: state.app.collapsed
+    collapsed: state.app.collapsed,
+    token: state.user.token
   }
 }
 const mapDispatchToProps = (dispatch) => {

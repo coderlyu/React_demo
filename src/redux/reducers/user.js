@@ -3,14 +3,14 @@ import { getUserToken, setUserToken, removeUserToken } from '../../utils/_ls'
 let User = {
   token: getUserToken() || '',
   avatar: '',
-  name: '',
+  username: '',
   userNumber: ''
 }
 const clearUser = () => {
   User = {
     token: '',
     avatar: '',
-    name: '',
+    username: '',
     userNumber: ''
   }
   return User
@@ -19,8 +19,11 @@ export default (state = User, action) => {
   switch (action.type) {
     case LOGIN:
       let user = state
-      user = Object.assign({}, user, action.user)
-      setUserToken(user)
+      let token = action.user.username + Date.now()
+      user = Object.assign({}, user, action.user, {
+        token
+      })
+      setUserToken(token)
       return user
     case LOGOUT:
       removeUserToken()
