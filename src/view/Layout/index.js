@@ -12,7 +12,8 @@ import {
   Cart,
   Product,
   TodoList,
-  ProductDetail
+  ProductDetail,
+  Game
 } from '../../router/index'
 // import GenerateRoutes from '../../utils/generate_routes'
 class Layout_ extends React.Component {
@@ -67,6 +68,12 @@ class Layout_ extends React.Component {
               path={`${match.url}todolist`}
               component={TodoList}
               state={{ title: 'todolist' }}
+            ></Route>
+            <Route
+              exact
+              path={`${match.url}game`}
+              component={Game}
+              state={{ title: '游戏' }}
             ></Route>
           </Content>
         </Layout>

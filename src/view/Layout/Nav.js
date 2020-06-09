@@ -69,6 +69,9 @@ class Nav extends React.Component {
           <Menu.Item key="/todolist" icon={<UploadOutlined />}>
             <Link to="/todolist">任务列表</Link>
           </Menu.Item>
+          <Menu.Item key="/game" icon={<UploadOutlined />}>
+            <Link to="/game">游戏</Link>
+          </Menu.Item>
         </Menu>
       </Sider>
     )

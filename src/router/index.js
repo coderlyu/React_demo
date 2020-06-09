@@ -112,4 +112,18 @@ const Logout = Loadable({
   loader: () => import('../view/login/logout'),
   loading: Loading
 })
-export { Cart, Home, Product, TodoList, ProductDetail, NotFound, Login, Logout } //将页面导出
+const Game = Loadable({
+  loader: () => import('../view/game/index'),
+  loading: Loading
+})
+export {
+  Cart,
+  Home,
+  Product,
+  TodoList,
+  ProductDetail,
+  NotFound,
+  Login,
+  Logout,
+  Game
+} //将页面导出
