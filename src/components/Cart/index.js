@@ -42,7 +42,6 @@ class Cart extends Component {
     }, 1000)
   }
   onSelectChange = (selectedRowKeys) => {
-    console.log('selectedRowKeys changed: ', selectedRowKeys)
     this.setState({ selectedRowKeys })
   }
   render() {

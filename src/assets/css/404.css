@@ -1,0 +1,49 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.error {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 200px;
+  font-weight: 700;
+  display: inline-block;
+  letter-spacing: 20px;
+  position: relative;
+  color: skyblue;
+  line-height: 100%;
+}
+h1::after {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  color: yellowgreen;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, red);
+  mask-image: linear-gradient(to bottom, transparent, red);
+  content: attr(data-content);
+}
+p {
+  font-size: 20px;
+  color: #999;
+}
+button{
+  border: none;
+  outline: none;
+  padding: 4px 7px;
+  cursor: pointer;
+  color: #fff;
+  background: rgba(154, 205, 50, 1);
+  transition: all .25s;
+  border-radius: 5px;
+}
+button:hover{
+  /* color: rgba(194, 0, 0, .6); */
+  color: rgba(154, 205, 50, 1);
+  background: rgba(154, 205, 50, .3);
+}
