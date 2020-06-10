@@ -4,14 +4,11 @@ import { addTodo } from '../../redux/actions/todolist'
 import { Form, Input, Button } from 'antd'
 
 class AddTodo extends React.Component {
-<<<<<<< HEAD:src/containers/AddTodo.js
-=======
   addTodoList = (values) => {
     this.props.onAddTodo(values.todo)
     this.refs.form.resetFields()
     this.refs.inputVal.focus()
   }
->>>>>>> shopping_cart:src/components/TodoList/AddTodo.js
   render() {
     return (
       <Form
