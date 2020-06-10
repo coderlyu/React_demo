@@ -3,7 +3,9 @@ import { Layout, Menu } from 'antd'
 import {
   UserOutlined,
   VideoCameraOutlined,
-  UploadOutlined
+  ShoppingCartOutlined,
+  FireOutlined,
+  AppstoreOutlined
 } from '@ant-design/icons'
 import PropTypes from 'prop-types'
 import { Link, withRouter } from 'react-router-dom'
@@ -63,13 +65,13 @@ class Nav extends React.Component {
           <Menu.Item key="/product" icon={<VideoCameraOutlined />}>
             <Link to="/product">商品</Link>
           </Menu.Item>
-          <Menu.Item key="/cart" icon={<UploadOutlined />}>
+          <Menu.Item key="/cart" icon={<ShoppingCartOutlined />}>
             <Link to="/cart">购物车 </Link>
           </Menu.Item>
-          <Menu.Item key="/todolist" icon={<UploadOutlined />}>
+          <Menu.Item key="/todolist" icon={<AppstoreOutlined />}>
             <Link to="/todolist">任务列表</Link>
           </Menu.Item>
-          <Menu.Item key="/game" icon={<UploadOutlined />}>
+          <Menu.Item key="/game" icon={<FireOutlined />}>
             <Link to="/game">游戏</Link>
           </Menu.Item>
         </Menu>
