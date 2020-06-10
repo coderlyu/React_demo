@@ -3,6 +3,7 @@ import cart from './cart'
 // import products, * as fromProducts from './products'
 import app from './app'
 import user from './user'
+import game from './game'
 
 // const getAddedIds = (state) => fromCart.getAddedIds(state.cart)
 // const getQuantity = (state, id) => fromCart.getQuantity(state.cart, id)
@@ -25,7 +26,7 @@ import user from './user'
 
 export default combineReducers({
   cart,
-  // products,
+  game,
   app,
   user
 })

@@ -15,3 +15,10 @@ export const DEL_BY_IDS = 'DEL_BY_IDS' // 根据 ids 删除购物车里的商品
 export const LOGIN = 'LOGIN' // 登录
 export const LOGOUT = 'LOGOUT' // 登出
 export const GET_USER = 'GET_USER' // 获取用户信息
+
+// 井字棋游戏
+
+export const GAME_SQUARE_ADD = 'GAME_SQUARE_ADD' // 下棋
+export const GAME_RESET = 'GAME_RESET' // 重新开始
+export const WHO_WINER = 'WHO_WINER' // 判断谁赢了
+export const GAME_BAK_STEP = 'GAME_BAK_STEP' // 悔棋 --> 后退一步
