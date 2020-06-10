@@ -89,7 +89,6 @@ const Home = Loadable({
 })
 const Product = Loadable({
   loader: () => import('../view/product'),
-  // loader: () => import('../components/Product/index'),
   loading: Loading
 })
 const TodoList = Loadable({

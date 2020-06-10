@@ -22,3 +22,10 @@ export const GAME_SQUARE_ADD = 'GAME_SQUARE_ADD' // 下棋
 export const GAME_RESET = 'GAME_RESET' // 重新开始
 export const WHO_WINER = 'WHO_WINER' // 判断谁赢了
 export const GAME_BAK_STEP = 'GAME_BAK_STEP' // 悔棋 --> 后退一步
+
+// todolist
+export const ADD_TODO = 'ADD_TODO' // 添加
+export const TOGGLE_TODO = 'TOGGLE_TODO' // 切换
+export const CLEAR_TODO = 'CLEAR_TODO' // 清空
+export const DELETE_TODO = 'DELETE_TODO' // 删除
+export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER' // 删除

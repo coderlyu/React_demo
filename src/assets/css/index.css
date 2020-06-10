@@ -160,3 +160,29 @@ body {
   text-align: center;
   margin-top: 30px;
 }
+
+/* todolist */
+.todo-list {
+  margin: 50px auto 0 auto;
+  width: 500px;
+  min-height: 100px;
+}
+.cardCss {
+  height: 239px;
+  overflow: auto;
+}
+.cardCss::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  background: #efefef;
+}
+.cardCss::-webkit-scrollbar-thumb {
+  width: 5px;
+  height: 5px;
+  background-color: #999;
+  border-radius: 5px;
+}
+.footer-btns {
+  display: flex;
+  justify-content: space-between;
+}

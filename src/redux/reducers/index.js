@@ -4,6 +4,7 @@ import cart from './cart'
 import app from './app'
 import user from './user'
 import game from './game'
+import todolist from './todolist'
 
 // const getAddedIds = (state) => fromCart.getAddedIds(state.cart)
 // const getQuantity = (state, id) => fromCart.getQuantity(state.cart, id)
@@ -28,5 +29,6 @@ export default combineReducers({
   cart,
   game,
   app,
-  user
+  user,
+  todolist
 })

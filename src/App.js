@@ -2,16 +2,7 @@ import React from 'react'
 import Layout from './view/Layout'
 // import { BrowserRouter as Router } from 'react-router-dom' // 引入路由
 import { Switch, Redirect, Route, withRouter } from 'react-router-dom'
-import {
-  NotFound,
-  Login,
-  Logout
-  // Home,
-  // Cart,
-  // Product,
-  // TodoList,
-  // ProductDetail
-} from './router/index'
+import { NotFound, Login, Logout } from './router/index'
 import { connect } from 'react-redux'
 class App extends React.Component {
   componentWillUpdate(nextState) {
