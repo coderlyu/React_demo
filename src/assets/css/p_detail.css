@@ -1,0 +1,15 @@
+.detail-wrapper {
+  display: flex;
+}
+.product-detail,
+.product-detail img {
+  width: 300px;
+  height: 400px;
+}
+.product-detail img {
+  padding: 20px 30px;
+  border-radius: 20px;
+}
+.detail-right {
+  flex: 1;
+}
