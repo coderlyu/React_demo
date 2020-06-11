@@ -7,16 +7,16 @@ import './assets/css/index.css' // 引入 antd UI
 import { ConfigProvider } from 'antd'
 import zhCN from 'antd/es/locale/zh_CN'
 import App from './App'
-
+import ErrorBound from './components/ErrorBoundaries' // 错误边界处理
 render(
   <ConfigProvider locale={zhCN}>
-    {' '}
     {/** 配置中文格式 */}
     <Provider store={store}>
-      {' '}
       {/** 全局注入 store */}
       <Router>
-        <App />
+        <ErrorBound>
+          <App />
+        </ErrorBound>
       </Router>
     </Provider>
   </ConfigProvider>,

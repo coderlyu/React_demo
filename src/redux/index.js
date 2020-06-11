@@ -11,6 +11,4 @@ if (process.env.NODE_ENV !== 'production') {
 
 const store = createStore(reducer, applyMiddleware(...middleware))
 
-// store.dispatch(getAllProducts())
-
 export default store
