@@ -1,10 +1,9 @@
 import _products from './products.json'
-
-const TIMEOUT = 100
-const buyProducts = (payload, cb, timeout) =>
-  setTimeout(() => cb(), timeout || TIMEOUT)
-const getProducts = (cb, timeout) =>
-  setTimeout(() => cb(_products), timeout || TIMEOUT)
+const TIMEOUT = 1000
+const buyProducts = (payload, cb, timeout = TIMEOUT) =>
+  setTimeout(() => cb(), timeout)
+const getProducts = (cb, timeout = TIMEOUT) =>
+  setTimeout(() => cb(_products), timeout)
 export default {
   getProducts,
   buyProducts

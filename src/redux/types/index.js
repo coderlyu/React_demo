@@ -4,6 +4,13 @@ export const CHECKOUT_SUCCESS = 'CHECKOUT_SUCCESS' // 请求成功
 export const CHECKOUT_FAILURE = 'CHECKOUT_FAILURE' // 请求失败
 export const RECEIVE_PRODUCTS = 'RECEIVE_PRODUCTS' // 接受产品
 export const TOGGLE_COLLAPSE = 'TOGGLE_COLLAPSE' // 左侧导航栏是否展开状态
+// 商品
+export const GET_ALL_PRODUCT = 'GET_ALL_PRODUCT' // 获取商品
+export const GET_PRODUCT_ERROR = 'GET_PRODUCT_ERROR' // 获取商品 失败
+export const GET_PRODUCT_SUCCESS = 'GET_PRODUCT_SUCCESS' // 获取商品 成功
+
+export const BUY_PRODUCT = 'BUY_PRODUCT' // 购买商品
+export const SET_PRODUCT = 'SET_PRODUCT' // store存储商品
 
 // 购物车
 export const GET_ALL_CART = 'GET_ALL_CART' // 获取购物车全部商品
