@@ -1,4 +1,3 @@
-// import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Product from '../../components/Product'
 import { addToCart } from '../../redux/actions/cart'

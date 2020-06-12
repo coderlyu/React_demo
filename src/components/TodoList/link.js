@@ -15,15 +15,9 @@ class Link extends React.Component {
 }
 
 Link.propTypes = {
-  // active: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
   onClick: PropTypes.func.isRequired
 }
-// const mapStateToProps = (state, ownProps) => {
-//   return {
-//     active: ownProps.filter === state.visibilityFilter
-//   }
-// }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {

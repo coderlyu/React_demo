@@ -1,22 +1,9 @@
 import React from 'react'
 import Layout from './view/Layout'
-// import { BrowserRouter as Router } from 'react-router-dom' // 引入路由
 import { Switch, Redirect, Route, withRouter } from 'react-router-dom'
 import { NotFound, Login, Logout } from './router/index'
 import { connect } from 'react-redux'
 class App extends React.Component {
-  componentWillUpdate(nextState) {
-    // console.log('nextState', nextState)
-    // console.log(
-    //   '---',
-    //   this.props.history.listen((route) => {
-    //     console.log(route)
-    //   })
-    // )
-  }
-  updateTitle = (props) => {
-    // this
-  }
   render() {
     const { token } = this.props
     return (
@@ -46,24 +33,6 @@ class App extends React.Component {
         )}
         <Redirect to="/404"></Redirect>
       </Switch>
-      // <Switch>
-      //   {this.props.match.path === this.state.path404} ? (
-      //   <Route exact path="/404" component={NotFound}></Route>) : (
-      //   <Layout>
-      //     <Redirect exact from="/" to="/home" />
-      //     <Route exact path="/home" component={Home}></Route>
-      //     <Route exact path="/cart" component={Cart}></Route>
-      //     <Route exact path="/product" component={Product}></Route>
-      //     <Route
-      //       exact
-      //       path="/product/detail/:id"
-      //       component={ProductDetail}
-      //     ></Route>
-      //     <Route exact path="/todolist" component={TodoList}></Route>
-      //     <Route path="/404" />
-      //   </Layout>
-      //   )
-      // </Switch>
     )
   }
 }

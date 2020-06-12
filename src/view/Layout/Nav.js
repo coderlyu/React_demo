@@ -25,7 +25,6 @@ class Nav extends React.Component {
     history: PropTypes.object.isRequired
   }
   componentWillUpdate(nextProps) {
-    // console.log('nextProps', nextProps)
     if (this.state.defaultKey !== nextProps.location.pathname) {
       this.setState({
         defaultKey: nextProps.location.pathname
@@ -39,10 +38,6 @@ class Nav extends React.Component {
   }
   render() {
     const { collapsed } = this.props
-    // let defaultKey =
-    //   location.pathname === '/' || location.pathname === '/home'
-    //     ? '/home'
-    //     : location.pathname
     return (
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className={collapsed ? 'hidden' : 'logo'}>CODERLY</div>

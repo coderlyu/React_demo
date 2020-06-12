@@ -15,7 +15,6 @@ import {
   ProductDetail,
   Game
 } from '../../router/index'
-// import GenerateRoutes from '../../utils/generate_routes'
 class Layout_ extends React.Component {
   constructor(props) {
     super(props)
@@ -37,7 +36,6 @@ class Layout_ extends React.Component {
         <Layout className="site-layout">
           <Header collapsed={this.props.collapsed} onToggle={this.toggle} />
           <Content>
-            {/* {this.props.children} */}
             <Redirect exact from={match.url} to={`${match.url}home`} />
             <Route
               exact

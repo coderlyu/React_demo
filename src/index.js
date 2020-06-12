@@ -15,6 +15,7 @@ render(
       {/** 全局注入 store */}
       <Router>
         <ErrorBound>
+          {/* 错误边界处理 */}
           <App />
         </ErrorBound>
       </Router>
